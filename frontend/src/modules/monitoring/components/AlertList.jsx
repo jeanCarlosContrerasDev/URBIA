@@ -20,15 +20,25 @@ export default function AlertList({ alerts, selectedId, onSelect, onDelete, newI
           {/* Zona cliqueable para enfocar en mapa */}
           <div
             onClick={() => onSelect?.(a)}
-            className="min-w-0 flex-1 cursor-pointer"
+            className="min-w-0 flex-1 cursor-pointer flex items-center gap-3"
           >
-            <p className="truncate text-sm font-medium text-slate-200 group-hover:text-cyan-400 transition">
-              {a.title}
-            </p>
-            <p className="text-xs text-slate-500">
-              {a.lat.toFixed(4)}, {a.lng.toFixed(4)} · {new Date(a.created_at).toLocaleTimeString()}
-              {a.confidence != null && ` · ${(a.confidence * 100).toFixed(0)}% conf.`}
-            </p>
+            {a.image_url && (
+              <img
+                src={a.image_url}
+                alt=""
+                className="w-10 h-10 object-cover rounded border border-slate-700 shrink-0"
+                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              />
+            )}
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-medium text-slate-200 group-hover:text-cyan-400 transition">
+                {a.title}
+              </p>
+              <p className="text-xs text-slate-500">
+                {a.lat.toFixed(4)}, {a.lng.toFixed(4)} · {new Date(a.created_at).toLocaleTimeString()}
+                {a.confidence != null && ` · ${(a.confidence * 100).toFixed(0)}% conf.`}
+              </p>
+            </div>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">

@@ -16,5 +16,6 @@ class AlertDB(Base):
     label = Column(String(100), nullable=True)
     count = Column(Integer, default=1)
     confidence = Column(Float, nullable=True)
+    image_url = Column(String(500), nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 

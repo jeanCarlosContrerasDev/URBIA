@@ -205,7 +205,15 @@ export default function MapView({
                   eventHandlers={{ click: () => onSelectAlert?.(a) }}
                 >
                   <Popup>
-                    <div className="text-slate-900 text-xs">
+                    <div className="text-slate-900 text-xs max-w-[200px]">
+                      {a.image_url && (
+                        <img
+                          src={a.image_url}
+                          alt={a.title}
+                          className="w-full h-24 object-cover rounded mb-2 border border-slate-200"
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
+                      )}
                       <strong className="text-sm block font-bold text-slate-950 mb-1">{a.title}</strong>
                       <p>
                         <strong>Categoría:</strong> <span className="uppercase font-semibold">{a.label || "Sin clasificar"}</span>

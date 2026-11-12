@@ -60,6 +60,7 @@ def list_alerts(limit: int = 100) -> list[Alert]:
                 label=r.label,
                 count=r.count,
                 confidence=r.confidence,
+                image_url=r.image_url,
             )
             for r in rows
         ]
@@ -84,6 +85,7 @@ def get_alert(alert_id: int) -> Alert | None:
             label=r.label,
             count=r.count,
             confidence=r.confidence,
+            image_url=r.image_url,
         )
     finally:
         db.close()

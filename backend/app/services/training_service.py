@@ -158,6 +158,7 @@ def save_image_and_annotation(
         alert_lat = lat if lat is not None else settings.DEFAULT_LAT
         alert_lng = lng if lng is not None else settings.DEFAULT_LNG
         nombre_es = translate_label(first_category)
+        img_url = f"/api/v1/training/images/{img_name}"
 
         new_alert = AlertDB(
             title=f"Reporte Manual: {nombre_es.capitalize()} identificado",
@@ -168,6 +169,7 @@ def save_image_and_annotation(
             label=first_category,
             count=len(annotations),
             confidence=1.0,
+            image_url=img_url,
             created_at=datetime.now(timezone.utc),
         )
         db.add(new_alert)
@@ -176,7 +178,7 @@ def save_image_and_annotation(
     except Exception as e:
         print("Aviso: no se pudo insertar en SQL Server:", e)
 
-    return {"filename": img_name, "classes": classes}
+    return {"filename": img_name, "image_url": f"/api/v1/training/images/{img_name}", "classes": classes}
 
 
 def _generate_yaml_internal(classes: list[str]):

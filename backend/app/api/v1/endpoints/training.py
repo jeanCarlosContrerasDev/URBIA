@@ -1,11 +1,22 @@
 import json
+from pathlib import Path
 from fastapi import APIRouter, File, Form, HTTPException, Query, UploadFile
 from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from app.services import training_service
 
 router = APIRouter()
+
+
+@router.get("/images/{filename}")
+async def get_dataset_image(filename: str):
+    safe_name = Path(filename).name
+    file_path = training_service.IMAGES_DIR / safe_name
+    if not file_path.is_file():
+        raise HTTPException(status_code=404, detail="Imagen no encontrada")
+    return FileResponse(file_path)
 
 
 class NewClassRequest(BaseModel):

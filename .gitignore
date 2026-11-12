@@ -20,6 +20,14 @@ __pycache__/
 *.onnx
 runs/
 
+# Dataset y entrenamientos locales
+backend/training_workspace/dataset/images/
+backend/training_workspace/dataset/labels/
+backend/training_workspace/models/
+training_workspace/dataset/images/
+training_workspace/dataset/labels/
+training_workspace/models/
+
 # Editor / SO
 .vscode/
 .idea/

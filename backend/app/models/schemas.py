@@ -29,6 +29,7 @@ class Alert(BaseModel):
     label: str | None = None
     count: int = 1
     confidence: float | None = None
+    image_url: str | None = None
 
 
 class Detection(BaseModel):
