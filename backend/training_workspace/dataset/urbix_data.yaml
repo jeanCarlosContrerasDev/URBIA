@@ -1,0 +1,12 @@
+path: C:/Users/Jean carlos/Desktop/URBIX_AI/urbix-ai-monorepo/backend/training_workspace/dataset/images
+train: .
+val: .
+
+names:
+  0: bache
+  1: basura
+  2: semaforo_danado
+  3: alcantarilla_abierta
+  4: vandalismo
+  5: inundacion
+  6: vehiculo_abandonado

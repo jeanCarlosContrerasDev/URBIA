@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Evita que el reset de Tailwind (img max-width/height) deforme los tiles de Leaflet */
+.leaflet-container img {
+  max-width: none !important;
+  max-height: none !important;
+}
+.leaflet-container {
+  background: #0f172a;
+  z-index: 0;
+}
+
+/* Filtro táctico oscuro de alto contraste para tiles OpenStreetMap sin requerir API KEY */
+.leaflet-tactical-tiles img {
+  filter: invert(100%) hue-rotate(185deg) brightness(80%) contrast(125%) !important;
+}
+

@@ -1,0 +1,19 @@
+{
+  "name": "urbix-ai-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "URBIX AI - Plataforma Inteligente de Monitoreo y Gestión Territorial",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "node scripts/backend.mjs dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "setup": "npm install && npm run setup:backend && npm run setup:frontend",
+    "setup:backend": "node scripts/backend.mjs setup",
+    "setup:frontend": "npm --prefix frontend install",
+    "build": "npm --prefix frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
+

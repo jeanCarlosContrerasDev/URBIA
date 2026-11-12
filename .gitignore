@@ -1,0 +1,28 @@
+# Node
+node_modules/
+dist/
+*.log
+npm-debug.log*
+
+# Python
+backend/venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Modelos IA (pesos pesados)
+*.pt
+*.onnx
+runs/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
